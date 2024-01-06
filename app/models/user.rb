@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :api_tokens
+
+  private
+
+  def generate_token
+    User.first.api_tokens.create
+  end
 end
